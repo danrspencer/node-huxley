@@ -17,8 +17,16 @@ function getNewDriver(browserName) {
     browser = webdriver.Capabilities.firefox();
     serverUrl = 'http://localhost:4444/wd/hub';
   } else if (browserName === 'chrome') {
-    browser = webdriver.Capabilities.chrome();
+
+      //var verbose = ['chrome.switches','--verbose'];
+      //var args = verbose.join();
+
+      browser = webdriver.Capabilities.chrome();
+
+
+
     serverUrl = 'http://localhost:9515';
+
   } else {
     return;
   }
