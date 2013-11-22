@@ -91,7 +91,7 @@ function _recordTask(browserName, huxleyfilePath, task, next) {
   var screenSize = task.screenSize || DEFAULT_SCREEN_SIZE;
 
   browser.openToUrl(driver, task.url, screenSize[0], screenSize[1], function() {
-    console.log('Running test: %s'.bold, task.name);
+    console.log('Running test: %s - %s'.bold, huxleyfilePath.split('/').pop(), task.name);
     recorder.startPromptAndInjectEventsScript(driver,
                                               function(screenShotTimes) {
       recorder.stopAndGetProcessedEvents(driver,
@@ -169,7 +169,7 @@ function _playbackTask(browserName,
   var screenSize = task.screenSize || DEFAULT_SCREEN_SIZE;
 
   browser.openToUrl(driver, task.url, screenSize[0], screenSize[1], function() {
-    console.log('\nRunning test: %s\n', task.name);
+    console.log('\nRunning test: %s - %s\n', huxleyfilePath.split('/').pop(), task.name);
 
     var options = {
       taskPath: recordPath,
