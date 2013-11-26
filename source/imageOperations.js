@@ -61,7 +61,7 @@ function _checkIfDifferent(image1Path, image2Path, done) {
       if (!match) return done('Unable to compare images: %s', stdout);
 
       var equality = parseFloat(match[1]);
-      done(err, equality > 0.000000005); // Give the image a small margin of error
+      done(err, equality < 0.000000005); // Give the image a small margin of error
     }
   );
 }
